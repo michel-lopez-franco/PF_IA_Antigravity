@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+.venv/
+venv/
+env/
+.env
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Testing & coverage
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Rerun
+*.rrd
+
+# Tools
+.mypy_cache/
+.ruff_cache/
+.ruff_tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Distribution / packaging
+*.whl
+MANIFEST

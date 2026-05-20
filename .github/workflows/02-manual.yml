@@ -3,10 +3,44 @@ name: 02 - Manual
 
 on:
   workflow_dispatch:
+    inputs:
+      log-level:
+        description: 'Log level'
+        required: true
+        default: 'info'
+        type: choice
+        options:
+          - info
+          - debug
+          - warning
+          - error
+
+
+        reason:
+          description: 'Reason for triggering the workflow'
+          required: false
+          default: ''
+          type: string
+          
 
 jobs:
   manual:
     runs-on: ubuntu-latest
     steps:
-      - name: Manual step
-        run: echo "This is a manual step triggered by workflow_dispatch event."
+      - name: Mostrar todos los inputs
+        env
+          LOG_LEVEL: ${{ github.event.inputs.log-level }}
+          ENVIRONMENT: ${{ github.event.inputs.environment }} 
+          DRY_RUN: ${{ github.event.inputs.dry-run }}
+          REASON: ${{ github.event.inputs.reason }}
+        run: |
+          echo "Log Level: $LOG_LEVEL"
+          echo "Environment: $ENVIRONMENT"
+          echo "Dry Run: $DRY_RUN"
+          echo "Reason: $REASON"
+
+
+      - name: Mostrar solo el log level
+        env:
+          LOG_LEVEL: ${{ github.event.inputs.log-level }}
+        run: echo "Log Level: $LOG_LEVEL"

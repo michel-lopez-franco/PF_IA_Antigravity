@@ -1,0 +1,12 @@
+name: 02 - Manual
+
+
+on:
+  workflow_dispatch:
+
+jobs:
+  manual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Manual step
+        run: echo "This is a manual step triggered by workflow_dispatch event."
